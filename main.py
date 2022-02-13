@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from scraper import Scraper
 
 
@@ -7,8 +7,7 @@ scraper = Scraper()
 
 
 @app.get("/{word}")
-async def search_google(word):
+async def search_google(word: str):
   items = scraper.google_search(word)
-  if len(items) == 0:
-    raise HTTPException(status_code=404, detail="Not found")
+  scraper.save_csv(items)
   return items

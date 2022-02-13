@@ -109,6 +109,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+/.dockervenv/
+/output-csv/
 
 # Spyder project settings
 .spyderproject
